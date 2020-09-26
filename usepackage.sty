@@ -3,7 +3,11 @@
 % centering in csvautotabular by	https://tex.stackexchange.com/questions/292512
 
 \ProvidesPackage{usepackage}			% must be the filename
-\usepackage[pdfpagemode=UseNone,		% no bookmark in acrobat
+\usepackage[colorlinks,					% color hyperlinks
+	citecolor=blue,						% color \citet
+	linkcolor=blue,						% color \ref
+	urlcolor=blue,						% color \url
+	pdfpagemode=UseNone,				% no bookmark in acrobat
 	pdfstartview=]{hyperref}			% default zoom
 \usepackage[margin=1in]{geometry}		% 1in margins
 \usepackage[doublespacing]{setspace}	% doublespace
