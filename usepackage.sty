@@ -1,14 +1,10 @@
-% skip=0pt for caption because		https://tex.stackexchange.com/questions/474753
-% underscores in csvautotabular by	https://tex.stackexchange.com/questions/204488
-% centering in csvautotabular by	https://tex.stackexchange.com/questions/292512
+% skip=0pt for caption because			https://tex.stackexchange.com/questions/474753
+% underscores in csvautotabular by		https://tex.stackexchange.com/questions/204488
+% centering in csvautotabular by		https://tex.stackexchange.com/questions/292512
+% useshortskips NCC@ignorepar because	https://tex.stackexchange.com/questions/385774
+% hyperref lastly because				https://tex.stackexchange.com/questions/3090
 
 \ProvidesPackage{usepackage}			% must be the filename
-\usepackage[colorlinks,					% color hyperlinks
-	citecolor=blue,						% color \citet
-	linkcolor=blue,						% color \ref
-	urlcolor=blue,						% color \url
-	pdfpagemode=UseNone,				% no bookmark in acrobat
-	pdfstartview=]{hyperref}			% default zoom
 \usepackage[margin=1in]{geometry}		% 1in margins
 \usepackage[doublespacing]{setspace}	% doublespace
 \usepackage[labelsep=period,			% Table 1: -> Table 1.
@@ -42,6 +38,8 @@
 }
 \newcommand{\csvautotabularcenter}[2][]{\csvloop{autotabularcenter={#2},#1}}
 \newcommand{\csvautobooktabularcenter}[2][]{\csvloop{autobooktabularcenter={#2},#1}}
+\usepackage{nccmath,xpatch}
+\xpatchcmd{\NCC@ignorepar}{\global}{\belowdisplayskip\belowdisplayshortskip\global}{}{}
 \usepackage[T1]{fontenc}
 \usepackage{pdflscape,					% rotated landscape
 	amsmath,							% math syntaxes
@@ -61,3 +59,9 @@
 \newtheorem{hypo}{Hypothesis}			% \begin{hypo}
 \newtheorem{prop}{Proposition}			% \begin{prop}
 \setlength{\fboxsep}{0pt}				% no padding around \colorbox
+\usepackage[colorlinks,					% color hyperlinks
+	citecolor=blue,						% color \citet
+	linkcolor=blue,						% color \ref
+	urlcolor=blue,						% color \url
+	pdfpagemode=UseNone,				% no bookmark in acrobat
+	pdfstartview=]{hyperref}			% default zoom
